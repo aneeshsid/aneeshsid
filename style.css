@@ -1,0 +1,176 @@
+body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* background-color: #f4f4f4; */
+    height: 100%;
+}
+
+* {
+    /* margin: 0; */
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
+nav{
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    flex-direction: row-reverse;
+    padding: 1rem;
+    box-shadow: 1px 1px 1px rgba(25, 22, 22, 0.1); /* optional – adds a subtle shadow */
+}
+
+nav a{
+    text-decoration: none;
+    color: #7c7575;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: text;
+
+}   
+
+nav a:hover{
+    color: black;
+    cursor: pointer;
+}
+
+#bio{
+   display: flex;
+    padding: 10px;
+    /* margin: 20px; */
+     /* animation: colorChange 10s infinite; */
+    /* background-color: #ff595e; */
+    /* border-radius: 8px; */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    justify-content: center ;
+    border-color: #e9ecef;
+    background-color: #f8f9fa;
+    filter: brightness(110%) contrast(90%) saturate(100%)    ;
+    /* flex-direction: column; */
+}
+
+#text_bio{
+    padding: 20px;
+    margin: 20px;
+    max-width: 32%;
+
+}
+
+.profile_pic {
+  width: 180px;            /* set size */
+  height: 180px;           /* equal height & width for perfect circle */
+  border-radius: 50%;      /* 👈 makes it round */
+  object-fit: cover;       /* keeps image centered & cropped nicely */
+  border: 2px solid #ddd; 
+ /* optional – adds a neat outline */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* optional – adds a subtle shadow */
+    margin-top: 20%;
+    filter: brightness(90%) contrast(100%) saturate(100%);
+
+  transition: filter 0.3s ease-in-out; /* smooth hover */
+}
+
+.profile_pic:hover {
+  filter: brightness(100%) contrast(60%) saturate(100%) blur(0.5px);
+}
+
+#bio_links{
+    display: flex;
+    align-items: center;
+    gap:30px ;
+}
+
+#bio_links a {
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  border: 1px solid transparent; /* 👈 Keeps layout steady */
+  box-shadow: 0 2px 4px rgba(173, 73, 73, 0.1);
+  transition: all 0.2s ease; /* 👈 smooth animation */
+}
+
+#bio_links a:hover {
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  border-color: #a15f5f; /* 👈 just changes color */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; 
+ 
+}
+
+.container h2{
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+@keyframes colorChange {
+  0%   { background-color: #ff595e; }
+  25%  { background-color: #ffca3a; }
+  /* 50%  { background-color: #8ac926; } */
+  50%  { background-color: #1982c4; }
+  100% { background-color: #ff595e; }
+}
+
+.skills_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+}
+
+.skill_category {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #e9ecef;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  
+  .skill_category h3 {
+    margin-top: 0;
+    color: #343a40;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 0.5rem;
+    text-align: start;
+
+}
+
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+
+.skill_category ul{
+  list-style: none;
+  padding: 0;
+}
+
+.skill_category li {
+    padding: 0.4rem 0;
+    color: #495057;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 1rem;
+}
+
+footer{
+  justify-self: center;
+  background-color: #343a40;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #f8f9fa;
+}
