@@ -1,242 +1,263 @@
-body{
-    font-family: Arial, sans-serif;
-    margin: 0;
-    /* background-color: #f4f4f4; */
-    height: 100%;
+/* ========================================
+   A N E E S H  S I D D H A R T H A  -  S I T E
+   Clean responsive + animations + polish
+   ======================================== */
+
+/* ---------- BASE STYLES ---------- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-    /* margin: 0; */
-    /* padding: 0; */
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-nav{
-    margin: 0;
-    display: flex;
-    gap: 10px;
-    flex-direction: row-reverse;
-    padding: 1rem;
-    box-shadow: 1px 1px 1px rgba(25, 22, 22, 0.1); /* optional – adds a subtle shadow */
+nav {
+  margin: 0;
+  display: flex;
+  gap: 10px;
+  flex-direction: row-reverse;
+  padding: 1rem;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(25, 22, 22, 0.05);
+  background: rgba(255, 255, 255, 0.55);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-nav a{
-    text-decoration: none;
-    color: #7c7575;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: text;
-
-}   
-
-nav a:hover{
-    color: black;
-    cursor: pointer;
+nav a {
+  text-decoration: none;
+  color: #7c7575;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
 }
 
-#bio{
-   display: flex;
-    padding: 10px;
-    /* margin: 20px; */
-     /* animation: colorChange 10s infinite; */
-    /* background-color: #ff595e; */
-    /* border-radius: 8px; */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    justify-content: center ;
-    border-color: #e9ecef;
-    background-color: #f8f9fa;
-    filter: brightness(110%) contrast(90%) saturate(100%)    ;
-    /* flex-direction: column; */
+nav a:hover {
+  color: black;
 }
 
-#text_bio{
-    padding: 20px;
-    margin: 20px;
-    max-width: 32%;
-
+/* ---------- BIO SECTION ---------- */
+#bio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(8px);
+  animation: bioFadeIn 0.7s cubic-bezier(.16, .84, .26, 1) 0.2s forwards;
 }
 
+@keyframes bioFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#text_bio {
+  padding: 10px;
+  max-width: 480px;
+}
+
+#text_bio h1 {
+  font-size: 28px;
+  margin: 0 0 6px;
+  color: #000;
+}
+
+#text_bio em {
+  font-size: 16px;
+  color: #555;
+}
+
+#text_bio p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 15px;
+  margin: 12px 0 20px;
+}
+
+/* ---------- PROFILE IMAGE ---------- */
 .profile_pic {
-  width: 180px;            /* set size */
-  height: 180px;           /* equal height & width for perfect circle */
-  border-radius: 50%;      /* 👈 makes it round */
-  object-fit: cover;       /* keeps image centered & cropped nicely */
-  border: 2px solid #ddd; 
- /* optional – adds a neat outline */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* optional – adds a subtle shadow */
-    margin-top: 20%;
-    filter: brightness(90%) contrast(100%) saturate(100%);
-
-  transition: filter 0.3s ease-in-out; /* smooth hover */
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
-
 .profile_pic:hover {
-  filter: brightness(100%) contrast(60%) saturate(100%) blur(0.5px);
+  transform: scale(1.04);
+  filter: brightness(1.05);
 }
 
-#bio_links{
-    display: flex;
-    align-items: center;
-    gap:30px ;
+/* ---------- BIO LINKS ---------- */
+#bio_links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 #bio_links a {
+  position: relative;
   text-decoration: none;
   color: white;
   background-color: black;
-  padding: 10px;
-  border: 1px solid transparent; /* 👈 Keeps layout steady */
-  box-shadow: 0 2px 4px rgba(173, 73, 73, 0.1);
-  transition: all 0.2s ease; /* 👈 smooth animation */
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  z-index: 0;
 }
 
-#bio_links a:hover {
-  text-decoration: none;
-  background-color: white;
-  color: black;
-  border-color: #a15f5f; /* 👈 just changes color */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* glow effect */
+#bio_links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.08) 40%, transparent 70%);
+  border-radius: 999px;
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
 }
 
-
-.container{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem; 
- 
+@media (hover: hover) and (pointer: fine) {
+  #bio_links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(7, 13, 27, 0.12);
+  }
+  #bio_links a:hover::after {
+    width: 220%;
+    height: 260%;
+    opacity: 1;
+  }
 }
 
-.container h2{
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+/* ---------- SKILLS SECTION ---------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-@keyframes colorChange {
-  0%   { background-color: #ff595e; }
-  25%  { background-color: #ffca3a; }
-  /* 50%  { background-color: #8ac926; } */
-  50%  { background-color: #1982c4; }
-  100% { background-color: #ff595e; }
+.container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
 .skills_grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
 }
 
 .skill_category {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 4px;
-    border: 1px solid #e9ecef;
-    margin: 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-  }
-  
-  .skill_category h3 {
-    margin-top: 0;
-    color: #343a40;
-    border-bottom: 2px solid #dee2e6;
-    padding-bottom: 0.5rem;
-    text-align: start;
-
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-    unicode-bidi: isolate;
+.skill_category h3 {
+  margin-top: 0;
+  color: #343a40;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 0.5rem;
 }
 
-.skill_category ul{
+.skill_category ul {
   list-style: none;
   padding: 0;
 }
 
 .skill_category li {
-    padding: 0.4rem 0;
-    color: #495057;
-    border-bottom: 1px solid #e9ecef;
-    font-size: 1rem;
+  padding: 0.4rem 0;
+  color: #495057;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 1rem;
 }
 
-footer{
-  justify-self: center;
+/* ---------- FOOTER ---------- */
+footer {
   background-color: #343a40;
-  padding: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
   color: #f8f9fa;
+  padding: 14px;
+  text-align: center;
+  font-size: 14px;
 }
 
-/* === Mobile overrides (<= 600px) === */
+/* ---------- MOBILE ---------- */
 @media (max-width: 600px) {
-  html, body {
-    font-size: 15px;
-  }
 
   nav {
     padding: 0.6rem;
+    justify-content: flex-end;
     gap: 8px;
   }
 
   nav a {
-    padding: 8px 10px;
     font-size: 14px;
   }
 
   #bio {
     flex-direction: column;
     align-items: center;
-    padding: 14px;
-    gap: 14px;
-    background-color: #fff; 
+    text-align: center;
+    gap: 18px;
+    padding: 24px 12px;
   }
 
   #text_bio {
-    max-width: 100%;
-    margin: 0;
-    padding: 12px;
-    text-align: center;
+    max-width: 95%;
+    padding: 0;
+  }
+
+  #text_bio h1 {
+    font-size: 24px;
+  }
+
+  #text_bio em {
+    font-size: 15px;
   }
 
   .profile_pic {
-    width: 110px;
-    height: 110px;
-    margin-top: 0;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
   }
 
   #bio_links {
     flex-direction: column;
-    gap: 10px;
     width: 100%;
+    gap: 10px;
     align-items: stretch;
-    padding: 0 12px 12px;
+    padding: 0 10px;
   }
 
   #bio_links a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    padding: 12px 14px;
+    padding: 12px 0;
     font-size: 15px;
-    border-radius: 8px;
-  }
-
-  .container {
-    padding: 0 14px;
-  }
-
-  .container h2 {
-    font-size: 20px;
   }
 
   .skills_grid {
@@ -245,80 +266,20 @@ footer{
   }
 
   .skill_category {
-    padding: 12px;
-    margin-bottom: 1rem;
+    padding: 1rem;
   }
 
   .skill_category h3 {
     font-size: 16px;
-    padding-bottom: 0.4rem;
   }
 
-  .skill_category li {
-    font-size: 15px;
-    padding: 0.45rem 0;
-  }
-
-  .card, #bio, .skill_category {
-    box-shadow: 0 1px 6px rgba(2,6,23,0.06);
-  }
-
-  /* Footer adjustments */
   footer {
-    padding: 14px 12px;
-    font-size: 14px;
-    flex-direction: column;
-    gap: 6px;
+    padding: 16px 10px;
+    font-size: 13px;
   }
 
-  a {
-    -webkit-tap-highlight-color: rgba(0,0,0,0.08);
-  }
-
-  .profile_pic:hover, .btn:hover {
+  .profile_pic:hover {
     transform: none;
-    box-shadow: none;
     filter: none;
   }
-
-  /* --- Fine-tune profile section for mobile look --- */
-#bio {
-  padding-top: 30px;
-  text-align: center;
-}
-
-#text_bio h1 {
-  font-size: 24px;
-  margin-bottom: 6px;
-}
-
-#text_bio em {
-  font-size: 15px;
-  color: #666;
-}
-
-#text_bio p {
-  line-height: 1.6;
-  font-size: 15px;
-  color: #444;
-}
-
-/* Buttons should feel tappable but aligned */
-#bio_links {
-  justify-content: center;
-}
-
-#bio_links a {
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: 0.2px;
-}
-
-/* Optional: reduce overall section width */
-.container {
-  width: 95%;
-  margin: 0 auto;
-}
-
 }
