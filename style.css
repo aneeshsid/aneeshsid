@@ -280,4 +280,45 @@ footer{
     box-shadow: none;
     filter: none;
   }
+
+  /* --- Fine-tune profile section for mobile look --- */
+#bio {
+  padding-top: 30px;
+  text-align: center;
+}
+
+#text_bio h1 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+#text_bio em {
+  font-size: 15px;
+  color: #666;
+}
+
+#text_bio p {
+  line-height: 1.6;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Buttons should feel tappable but aligned */
+#bio_links {
+  justify-content: center;
+}
+
+#bio_links a {
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+}
+
+/* Optional: reduce overall section width */
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+
 }
